@@ -4,8 +4,10 @@
 
 「カレンダー自動とうろくん」は、LINEで送信された自然言語のメッセージから予定情報を抽出し、Googleカレンダーに自動で登録するLINE Botです。AWS Lambdaを活用したサーバーレスアーキテクチャで構築されており、ユーザーは複雑な操作なしに、日常会話のような文章でカレンダー登録が可能です。
 
-<img src="images/calendar_zidoutourokun1.jpg" alt="カレンダー自動とうろくん イメージ図1" width="500"/>
-<img src="images/calendar_zidoutourokun2.jpg" alt="カレンダー自動とうろくん イメージ図2" width="500"/>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="images/calendar_zidoutourokun1.jpg" alt="カレンダー自動とうろくん イメージ図1" width="350"/>
+  <img src="images/calendar_zidoutourokun2.jpg" alt="カレンダー自動とうろくん イメージ図2" width="350"/>
+</div>
 
 ## 🎯 開発の背景と目的
 
