@@ -52,7 +52,12 @@ def get_json_from_gemini(received_message):
         
         # 現在の日時を取得
         JST = datetime.timezone(datetime.timedelta(hours=+9), 'JST')
-        today = datetime.datetime.now(JST).strftime("%Y-%m-%d %H:%M")
+        now = datetime.datetime.now(JST)
+        today = now.strftime("%Y-%m-%d %H:%M")
+        
+        # 曜日を日本語で取得
+        weekday_ja = ["月", "火", "水", "木", "金", "土", "日"][now.weekday()]
+        today_with_weekday = f"{today}（{weekday_ja}曜日）"
         
         # プロンプトテンプレート
         system_prompt = (
@@ -78,7 +83,7 @@ def get_json_from_gemini(received_message):
             "}"
             "```\n\n"
             "- 日付と時間は24時間表記で「YYYY-MM-DD HH:MM」形式にしてください。\n"
-            f"- 現在の日付は{today}です。\n"
+            f"- 現在の日付は{today_with_weekday}です。\n"
             "- 時間が明示されていない場合は、開始時間を00:00、終了時間を23:59としてください。\n"
             "- 明らかにカレンダー登録とかけ離れる内容の場合は、\"no event found\" と出力してください。\n\n"
             "### 入力テキスト\n"
