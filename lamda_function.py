@@ -79,6 +79,7 @@ def get_json_from_gemini(received_message):
             "```\n\n"
             "- 日付と時間は24時間表記で「YYYY-MM-DD HH:MM」形式にしてください。\n"
             f"- 現在の日付は{today}です。\n"
+            "- 時間が明示されていない場合は、開始時間を00:00、終了時間を23:59としてください。\n"
             "- 明らかにカレンダー登録とかけ離れる内容の場合は、\"no event found\" と出力してください。\n\n"
             "### 入力テキスト\n"
             f"{received_message}\n\n"
