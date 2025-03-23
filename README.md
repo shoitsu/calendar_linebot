@@ -4,11 +4,13 @@
 
 「カレンダー自動とうろくん」は、LINEで送信された自然言語のメッセージから予定情報を抽出し、Googleカレンダーに自動で登録するLINE Botです。AWS Lambdaを活用したサーバーレスアーキテクチャで構築されており、ユーザーは複雑な操作なしに、日常会話のような文章でカレンダー登録が可能です。
 
-![カレンダー自動とうろくん イメージ図]()
+![カレンダー自動とうろくん イメージ図1](images/calendar_zidoutourokun1.png)
+![カレンダー自動とうろくん イメージ図1](images/calendar_zidoutourokun2.png)
 
 ## 🎯 開発の背景と目的
 
-予定管理はビジネスパーソンの必須スキルですが、アプリを開いて入力する手間が煩わしいと感じることがあります。特に移動中や会話の合間など、すぐにメモしたい瞬間に素早く予定を登録できないことが課題でした。
+予定管理をするにあたって、カレンダーアプリを開いて入力する手間がめんどくさいなぁと思ってました。
+また、移動中や会話の合間など、すぐにメモしたい瞬間に素早く予定を登録できないことが課題でした。
 
 そこで、日常的に使用するLINEを通じて、自然な会話感覚で予定を登録できるサービスを開発しました。「明日の15時から会議」のような簡潔なメッセージだけで、適切にカレンダーに予定が追加される便利さを実現しています。
 
@@ -88,7 +90,7 @@
 
 ## 📦 デプロイ方法
 
-詳細は，
+詳細は、
 https://qiita.com/shoitsu/items/afaf26599e3788843cb4
 
 ### 前提条件
@@ -110,7 +112,7 @@ https://qiita.com/shoitsu/items/afaf26599e3788843cb4
 
 ### 3. AWS Lambda設定
 1. Lambda関数を作成（Pythonランタイム）
-2. 必要なライブラリを含むデプロイパッケージを作成
+2. 必要なライブラリを含むレイヤーを作成
    ```bash
    pip install -t ./package google-auth google-api-python-client requests
    cd package
@@ -118,7 +120,7 @@ https://qiita.com/shoitsu/items/afaf26599e3788843cb4
    cd ..
    zip -g deployment-package.zip lambda_function.py
    ```
-3. Lambda関数にデプロイパッケージをアップロード
+3. Lambda関数にレイヤーをアップロード
 4. 関数URLを有効化し、認証タイプを「NONE」に設定
 5. 環境変数を設定:
    - `CHANNEL_ACCESS_TOKEN`: LINE Bot用チャネルアクセストークン
